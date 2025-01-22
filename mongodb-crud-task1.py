@@ -1,4 +1,6 @@
 import pymongo
+#One should take keys as JSON
+# from flask import Flask, request, jsonify
 
 class DatabaseManager:
     def __init__(self):
@@ -50,6 +52,8 @@ class DatabaseManager:
             print("Connection Closed")
 
 def main():
+    # app = Flask(__name__)
+
     db = DatabaseManager()
     
     # Insert a document
@@ -57,6 +61,20 @@ def main():
         "name": "Product1",
         "price": 10.99,
     }
+    
+
+# Route to handle JSON data
+# @app.route('/post_task1', methods=['POST'])
+# def handle_json():
+    # data = request.get_json()  # Parse JSON data
+
+    # Create a entry using POST Request to MongoDB using insert() via pymongo
+    # db.insert(data)
+    # return jsonify({
+    #     "message": "MongoDB data inserted successfully!",
+    #     "data": data
+    # })
+    
     db.insert(product)
     
     # Read documents
